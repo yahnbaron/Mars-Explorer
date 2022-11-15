@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AJAX Project</title>
+  <title>Mars Explorer</title>
   <link rel="icon" href="images/favicon.ico">
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/layout.css">
@@ -11,8 +11,41 @@
 </head>
 <body>
   <header>
+    <div class="container">
+      <div class="row">
+        <div class="col-auto">
+          <h1>Mars Explorer</h1>
+        </div>
+      </div>
+    </div>
   </header>
-  <main>
+  <main class="container">
+    <div class="form-view">
+      <div class="row">
+        <div class="col-auto">
+          <h2>New Photo</h2>
+        </div>
+      </div>
+      <form>
+        <div class="row centered">
+          <div class="col-twenty">
+            <label for="sol">Enter a Sol (1-1653)</label>
+            <input name="sol" type="text" id="sol" required>
+            <label for="cam">Select a camera:</label>
+            <select name="cam" id="cam">
+              <option value="">--Please choose an option--</option>
+              <option value="fhaz">Front Hazard Avoidance Camera</option>
+              <option value="rhaz">Rear Hazard Avoidance Camera</option>
+              <option value="mast">Mast Camera</option>
+              <option value="navcam">Navigation Camera</option>
+            </select>
+            <div class="sub-button">
+              <button type="submit">Take a look</button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
   </main>
   <script src="js/data.js"></script>
   <script src="js/main.js"></script>
