@@ -17,19 +17,6 @@ function submitForm(event) {
 
 function apiReturner(event) {
   // console.log(event.target.response);
-  $formView.className = 'form-view hidden';
+  $formView.classList.add('form-view hidden');
   // if (event.target.response.photos.length === 0) {}
 }
-
-/*
- var xhr = new XMLHttpRequest();
-xhr.open('GET', 'https://jsonplaceholder.typicode.com/users');
-xhr.responseType = 'json';
-xhr.addEventListener('load', function () {
-  console.log(xhr.status);
-  console.log(xhr.response);
-  var users = xhr.response;
-
-});
-xhr.send();
-*/
