@@ -24,6 +24,11 @@ form {
   text-align: right;
 }
 
+button {
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
 .sub-button > button {
   background-color: #ff9830;
   border-radius: 5px;
@@ -33,4 +38,39 @@ form {
 
 img {
   width: 100%;
+  max-height: 500px;
+}
+
+.between {
+  justify-content: space-between;
+}
+
+.preview-img {
+  margin-bottom: 20px;
+}
+
+.back-button {
+  background-color: #e0e0e0;
+  border: 1px darksaltegray solid;
+  color: darkslategray;
+  text-decoration: underline;
+}
+
+.add-button {
+  background-color: #e0e0e0;
+  border: 1px #28a745 solid;
+  color: #28a745;
+  padding: 6px 10px;
+}
+
+.image-data {
+  text-align: center;
+  justify-content: center;
+}
+
+@media screen and (min-width: 768px) {
+  .image-data {
+    position: relative;
+    bottom: 50px;
+  }
 }
