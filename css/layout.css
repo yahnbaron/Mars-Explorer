@@ -1,0 +1,41 @@
+.hidden {
+  display: none !important;
+}
+
+.container {
+  max-width: 575px;
+  margin: 0 10px;
+  padding: 0 1.5rem;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.col-full {
+  width: 100%;
+}
+
+.col-twenty {
+  flex-basis: 20%;
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    max-width: 1250px;
+  }
+
+  .column-full,
+  .column-half {
+    padding: 0 0.75rem;
+  }
+
+  .column-half {
+    width: 50%;
+  }
+}
+
+.col-auto {
+  flex-basis: auto;
+}
