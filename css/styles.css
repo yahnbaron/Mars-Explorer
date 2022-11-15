@@ -74,3 +74,8 @@ img {
     bottom: 50px;
   }
 }
+
+.error-message {
+  text-align: center;
+  color: red;
+}
