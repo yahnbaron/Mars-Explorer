@@ -45,10 +45,6 @@ img {
   justify-content: space-between;
 }
 
-.preview-img {
-  margin-bottom: 20px;
-}
-
 .back-button {
   background-color: #e0e0e0;
   border: 1px darksaltegray solid;
@@ -71,4 +67,8 @@ img {
 .error-message {
   text-align: center;
   color: red;
+}
+
+.center-align {
+  align-items: center;
 }
