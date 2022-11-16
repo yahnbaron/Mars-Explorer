@@ -7,7 +7,9 @@ var $solSpan = document.querySelector('.display-sol');
 var $earthSpan = document.querySelector('.display-earth');
 var badDay;
 var $backButton = document.querySelector('.back-button');
-// var $addButton = document.querySelector('.add-button');
+var $addButton = document.querySelector('.add-button');
+var photoData = {};
+var $collectionView = document.querySelector('.collection-view');
 
 $form.addEventListener('submit', submitForm);
 
@@ -35,6 +37,9 @@ function apiReturner(event) {
     $previewImg.setAttribute('src', 'images/sadRover.png');
   } else {
     $previewImg.setAttribute('src', event.target.response.photos[0].img_src);
+    photoData.src = event.target.response.photos[0].img_src;
+    photoData.sol = event.target.response.photos[0].sol;
+    photoData.earthDate = event.target.response.photos[0].earth_date;
     $solSpan.textContent = event.target.response.photos[0].sol;
     $earthSpan.textContent = event.target.response.photos[0].earth_date;
   }
@@ -46,4 +51,16 @@ function goBack(event) {
   $errorMessage.classList.add('hidden');
   $formView.classList.remove('hidden');
   $preView.classList.add('hidden');
+}
+
+$addButton.addEventListener('click', addIt);
+
+function addIt(event) {
+  if ($previewImg.getAttribute('src') === 'images/sadRover.png') {
+    return;
+  }
+  photoData.entryId = data.nextEntryId++;
+  data.entries.unshift(photoData);
+  $preView.classList.add('hidden');
+  $collectionView.classList.remove('hidden');
 }
