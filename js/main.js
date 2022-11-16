@@ -55,9 +55,9 @@ function goBack(event) {
 $addButton.addEventListener('click', addIt);
 
 function addIt(event) {
-  // if ($previewImg.getAttribute('src') === 'images/sadRover.png') {
-
-  // } else {
-  //  photoData.entryId = data.nextEntryId++;
-  // }
+  if ($previewImg.getAttribute('src') === 'images/sadRover.png') {
+    return;
+  }
+  photoData.entryId = data.nextEntryId++;
+  data.entries.unshift(photoData);
 }
