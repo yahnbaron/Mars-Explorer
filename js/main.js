@@ -60,4 +60,5 @@ function addIt(event) {
   }
   photoData.entryId = data.nextEntryId++;
   data.entries.unshift(photoData);
+  $preView.classList.add('hidden');
 }
