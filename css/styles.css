@@ -72,3 +72,9 @@ img {
 .center-align {
   align-items: center;
 }
+
+@media screen and (max-width: 768px) {
+  p {
+    font-size: 14px;
+  }
+}
