@@ -7,7 +7,7 @@ var $solSpan = document.querySelector('.display-sol');
 var $earthSpan = document.querySelector('.display-earth');
 var badDay;
 var $backButton = document.querySelector('.back-button');
-// var $addButton = document.querySelector('.add-button');
+var $addButton = document.querySelector('.add-button');
 
 $form.addEventListener('submit', submitForm);
 
@@ -46,4 +46,14 @@ function goBack(event) {
   $errorMessage.classList.add('hidden');
   $formView.classList.remove('hidden');
   $preView.classList.add('hidden');
+}
+
+$addButton.addEventListener('click', addIt);
+
+function addIt(event) {
+  /* if ($previewImg.getAttribute('src') === 'images/sadRover.png') {
+    return;
+  } else {
+    $previewImg
+  } */
 }
