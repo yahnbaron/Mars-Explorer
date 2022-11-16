@@ -9,6 +9,7 @@ var badDay;
 var $backButton = document.querySelector('.back-button');
 var $addButton = document.querySelector('.add-button');
 var photoData = {};
+var $collectionView = document.querySelector('.collection-view');
 
 $form.addEventListener('submit', submitForm);
 
@@ -61,4 +62,5 @@ function addIt(event) {
   photoData.entryId = data.nextEntryId++;
   data.entries.unshift(photoData);
   $preView.classList.add('hidden');
+  $collectionView.classList.remove('hidden');
 }
