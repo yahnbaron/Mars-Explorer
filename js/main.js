@@ -8,6 +8,7 @@ var $earthSpan = document.querySelector('.display-earth');
 var badDay;
 var $backButton = document.querySelector('.back-button');
 var $addButton = document.querySelector('.add-button');
+var photoData = {};
 
 $form.addEventListener('submit', submitForm);
 
@@ -35,6 +36,9 @@ function apiReturner(event) {
     $previewImg.setAttribute('src', 'images/sadRover.png');
   } else {
     $previewImg.setAttribute('src', event.target.response.photos[0].img_src);
+    photoData.src = event.target.response.photos[0].img_src;
+    photoData.sol = event.target.response.photos[0].sol;
+    photoData.earthDate = event.target.response.photos[0].earth_date;
     $solSpan.textContent = event.target.response.photos[0].sol;
     $earthSpan.textContent = event.target.response.photos[0].earth_date;
   }
@@ -51,9 +55,9 @@ function goBack(event) {
 $addButton.addEventListener('click', addIt);
 
 function addIt(event) {
-  /* if ($previewImg.getAttribute('src') === 'images/sadRover.png') {
-    return;
-  } else {
-    $previewImg
-  } */
+  // if ($previewImg.getAttribute('src') === 'images/sadRover.png') {
+
+  // } else {
+  //  photoData.entryId = data.nextEntryId++;
+  // }
 }
