@@ -68,13 +68,6 @@ img {
   justify-content: center;
 }
 
-@media screen and (min-width: 768px) {
-  .image-data {
-    position: relative;
-    bottom: 50px;
-  }
-}
-
 .error-message {
   text-align: center;
   color: red;

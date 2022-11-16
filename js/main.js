@@ -6,6 +6,8 @@ var $preView = document.querySelector('.preview');
 var $solSpan = document.querySelector('.display-sol');
 var $earthSpan = document.querySelector('.display-earth');
 var badDay;
+var $backButton = document.querySelector('.back-button');
+// var $addButton = document.querySelector('.add-button');
 
 $form.addEventListener('submit', submitForm);
 
@@ -20,6 +22,7 @@ function submitForm(event) {
   xhr.responseType = 'json';
   xhr.addEventListener('load', apiReturner);
   xhr.send();
+  $form.reset();
 }
 
 function apiReturner(event) {
@@ -29,9 +32,18 @@ function apiReturner(event) {
     $errorMessage.classList.remove('hidden');
     $solSpan.textContent = badDay;
     $earthSpan.textContent = 'unknown';
+    $previewImg.setAttribute('src', 'images/sadRover.png');
   } else {
     $previewImg.setAttribute('src', event.target.response.photos[0].img_src);
     $solSpan.textContent = event.target.response.photos[0].sol;
     $earthSpan.textContent = event.target.response.photos[0].earth_date;
   }
+}
+
+$backButton.addEventListener('click', goBack);
+
+function goBack(event) {
+  $errorMessage.classList.add('hidden');
+  $formView.classList.remove('hidden');
+  $preView.classList.add('hidden');
 }
