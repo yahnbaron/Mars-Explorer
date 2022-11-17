@@ -10,6 +10,7 @@ var $backButton = document.querySelector('.back-button');
 var $addButton = document.querySelector('.add-button');
 var photoData = {};
 var $collectionView = document.querySelector('.collection-view');
+var $logoA = document.querySelector('.logo-a');
 
 $form.addEventListener('submit', submitForm);
 
@@ -63,4 +64,12 @@ function addIt(event) {
   data.entries.unshift(photoData);
   $preView.classList.add('hidden');
   $collectionView.classList.remove('hidden');
+}
+
+$logoA.addEventListener('click', switchToCollection);
+
+function switchToCollection(event) {
+  $preView.classList.add('hidden');
+  $formView.classList.toggle('hidden');
+  $collectionView.toggle('hidden');
 }
