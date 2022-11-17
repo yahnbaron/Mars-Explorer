@@ -3,7 +3,7 @@ header {
 }
 
 body {
-  background-color: #e0e0e0;
+  background-color: #dfd8c9;
 }
 
 .centered {
@@ -77,4 +77,13 @@ img {
   p {
     font-size: 14px;
   }
+}
+
+.logo {
+  height: 100%;
+  margin-top: 0;
+  position: relative;
+  right: 35px;
+  max-height: 100px;
+  width: 200px;
 }
