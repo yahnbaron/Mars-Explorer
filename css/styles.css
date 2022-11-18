@@ -131,3 +131,7 @@ button:hover {
 .collection-nav {
   margin-left: 10px;
 }
+
+.rendered-entry {
+  position: relative;
+}

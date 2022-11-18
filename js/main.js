@@ -94,6 +94,10 @@ function renderEntry(entry) {
   $renderImg.setAttribute('src', entry.src);
   $renderImg.className = 'pic-in-list';
   $listItem.append($renderImg);
+
+  // var $delIcon = document.createElement('i');
+  // $delIcon.className = 'fa-solid fa-x';
+
   return $listItem;
 }
 
