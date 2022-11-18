@@ -117,3 +117,11 @@ function goToCollection(event) {
   $formView.classList.add('hidden');
   $collectionView.classList.remove('hidden');
 }
+
+$parentUL.addEventListener('click', deleteClick);
+
+function deleteClick(event) {
+  if (event.target.nodeName !== 'I') { return; }
+  var $clickedLi = event.target.closest('li');
+  $clickedLi.remove();
+}
