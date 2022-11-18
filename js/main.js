@@ -11,6 +11,7 @@ var $addButton = document.querySelector('.add-button');
 var photoData = {};
 var $collectionView = document.querySelector('.collection-view');
 var $logoA = document.querySelector('.logo-a');
+var $parentUL = document.querySelector('.render-here');
 
 $form.addEventListener('submit', submitForm);
 
@@ -64,12 +65,41 @@ function addIt(event) {
   data.entries.unshift(photoData);
   $preView.classList.add('hidden');
   $collectionView.classList.remove('hidden');
+  // renderEntry(photoData);
+  $parentUL.prepend(renderEntry(photoData));
+  photoData = {};
 }
 
 $logoA.addEventListener('click', switchToCollection);
 
 function switchToCollection(event) {
+  $errorMessage.classList.add('hidden');
   $preView.classList.add('hidden');
   $formView.classList.toggle('hidden');
-  $collectionView.toggle('hidden');
+  $collectionView.classList.toggle('hidden');
+}
+
+function renderEntry(entry) {
+  /*
+  <li class="column-third">
+    <img src="">
+  </li>
+  */
+  var $listItem = document.createElement('li');
+  $listItem.setAttribute('data-entry-id', entry.entryId);
+  $listItem.className = 'col-third';
+
+  var $renderImg = document.createElement('img');
+  $renderImg.setAttribute('src', entry.src);
+  $renderImg.className = 'pic-in-list';
+  $listItem.append($renderImg);
+  return $listItem;
+}
+
+document.addEventListener('DOMContentLoaded', addThem);
+
+function addThem(event) {
+  for (var i = 0; i < data.entries.length; i++) {
+    $parentUL.append(renderEntry(data.entries[i]));
+  }
 }

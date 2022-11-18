@@ -21,6 +21,14 @@
   flex-basis: 20%;
 }
 
+.col-auto {
+  flex-basis: auto;
+}
+
+.col-third {
+  flex-basis: 100%;
+}
+
 @media screen and (min-width: 768px) {
   .container {
     max-width: 1250px;
@@ -34,8 +42,8 @@
   .column-half {
     width: 50%;
   }
-}
 
-.col-auto {
-  flex-basis: auto;
+  .col-third {
+    flex-basis: calc(100%/3);
+  }
 }
