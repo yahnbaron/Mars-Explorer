@@ -8,6 +8,11 @@
   padding: 0 1.5rem;
 }
 
+.container-fluid {
+  max-width: 100%;
+  width: 100%;
+}
+
 .row {
   display: flex;
   flex-wrap: wrap;

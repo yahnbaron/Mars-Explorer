@@ -3,7 +3,9 @@ header {
 }
 
 body {
-  background-color: #dfd8c9;
+  background-color: #e0e0e0;
+  font-family: Gruppo, cursive;
+  font-weight: bold;
 }
 
 .centered {
@@ -86,11 +88,11 @@ img {
 }
 
 .logo {
-  height: 100%;
-  position: relative;
-  right: 35px;
-  max-height: 100px;
-  width: 180px;
+  height: 50px;
+  width: 200px;
+  display: block;
+  object-fit: cover;
+  object-position: center;
 }
 
 ul,
@@ -114,4 +116,18 @@ li {
   .pic-in-list {
     padding: 0 0 40px;
   }
+}
+
+:visited,
+a {
+  text-decoration: none;
+  color: black;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+.collection-nav {
+  margin-left: 10px;
 }
