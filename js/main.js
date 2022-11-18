@@ -88,15 +88,16 @@ function renderEntry(entry) {
   */
   var $listItem = document.createElement('li');
   $listItem.setAttribute('data-entry-id', entry.entryId);
-  $listItem.className = 'col-third';
+  $listItem.className = 'col-third rendered-entry';
 
   var $renderImg = document.createElement('img');
   $renderImg.setAttribute('src', entry.src);
   $renderImg.className = 'pic-in-list';
   $listItem.append($renderImg);
 
-  // var $delIcon = document.createElement('i');
-  // $delIcon.className = 'fa-solid fa-x';
+  var $delIcon = document.createElement('i');
+  $delIcon.className = 'fa-solid fa-x';
+  $listItem.append($delIcon);
 
   return $listItem;
 }
