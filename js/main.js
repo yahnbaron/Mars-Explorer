@@ -12,6 +12,7 @@ var photoData = {};
 var $collectionView = document.querySelector('.collection-view');
 var $logoA = document.querySelector('.logo-a');
 var $parentUL = document.querySelector('.render-here');
+var $collectionNav = document.querySelector('.collection-nav');
 
 $form.addEventListener('submit', submitForm);
 
@@ -70,13 +71,13 @@ function addIt(event) {
   photoData = {};
 }
 
-$logoA.addEventListener('click', switchToCollection);
+$logoA.addEventListener('click', goHome);
 
-function switchToCollection(event) {
+function goHome(event) {
   $errorMessage.classList.add('hidden');
   $preView.classList.add('hidden');
-  $formView.classList.toggle('hidden');
-  $collectionView.classList.toggle('hidden');
+  $formView.classList.remove('hidden');
+  $collectionView.classList.add('hidden');
 }
 
 function renderEntry(entry) {
@@ -102,4 +103,12 @@ function addThem(event) {
   for (var i = 0; i < data.entries.length; i++) {
     $parentUL.append(renderEntry(data.entries[i]));
   }
+}
+
+$collectionNav.addEventListener('click', goToCollection);
+
+function goToCollection(event) {
+  $preView.classList.add('hidden');
+  $formView.classList.add('hidden');
+  $collectionView.classList.remove('hidden');
 }
