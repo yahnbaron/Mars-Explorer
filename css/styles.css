@@ -4,6 +4,8 @@ header {
 
 body {
   background-color: #e0e0e0;
+  font-family: Gruppo, cursive;
+  font-weight: bold;
 }
 
 .centered {
@@ -77,4 +79,55 @@ img {
   p {
     font-size: 14px;
   }
+
+  .pic-in-list {
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 30px;
+  }
+}
+
+.logo {
+  height: 50px;
+  width: 200px;
+  display: block;
+  object-fit: cover;
+  object-position: center;
+}
+
+ul,
+li {
+  list-style-type: none;
+  padding: 0;
+}
+
+.pic-in-list {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  padding: 10px;
+}
+
+@media screen and (max-width: 768px) {
+  p {
+    font-size: 14px;
+  }
+
+  .pic-in-list {
+    padding: 0 0 40px;
+  }
+}
+
+:visited,
+a {
+  text-decoration: none;
+  color: black;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+.collection-nav {
+  margin-left: 10px;
 }

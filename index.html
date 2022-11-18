@@ -8,20 +8,31 @@
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/layout.css">
   <link rel="stylesheet" href="css/styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Gruppo&display=swap" rel="stylesheet">
 </head>
 <body>
   <header>
-    <div class="container">
-      <div class="row">
+    <div class="container-fluid">
+      <div class="row center-align">
         <div class="col-auto">
-          <h1>Mars Explorer</h1>
+          <a class="logo-a" href="#"><img class="logo" src="images/logo.png"></a>
+        </div>
+        <div class="col-auto col-nav">
+          <a href="#" class="collection-nav">View Collection</a>
         </div>
       </div>
     </div>
   </header>
   <main class="container">
     <div class="collection-view hidden">
-
+      <div class="row">
+        <div class="col-auto">
+          <h2>Collection</h2>
+        </div>
+      </div>
+      <ul class="render-here row"></ul>
     </div>
     <div class="preview hidden">
       <div class="row">
