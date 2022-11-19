@@ -36,6 +36,7 @@ function submitForm(event) {
   $form.reset();
   $addButton.classList.remove('hidden');
   $backButton.classList.remove('hidden');
+  $deleteI.classList.add('hidden');
 }
 
 function apiReturner(event) {
