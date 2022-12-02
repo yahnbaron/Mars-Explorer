@@ -2,7 +2,7 @@
 var data = {
   view: 'entry-form',
   entries: [],
-  editing: null,
+  deleting: null,
   nextEntryId: 1
 };
 

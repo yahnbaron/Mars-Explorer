@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mars Explorer</title>
   <link rel="icon" href="images/favicon.ico">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/layout.css">
   <link rel="stylesheet" href="css/styles.css">
@@ -13,6 +16,12 @@
   <link href="https://fonts.googleapis.com/css2?family=Gruppo&display=swap" rel="stylesheet">
 </head>
 <body>
+  <div class="cloak hidden"></div>
+  <div class="modal hidden">
+    <h3>Are you sure you want to delete this entry?</h3>
+    <button class="cancel-delete">CANCEL</button>
+    <button class="confirm-delete">CONFIRM</button>
+  </div>
   <header>
     <div class="container-fluid">
       <div class="row center-align">
@@ -41,7 +50,8 @@
         </div>
       </div>
       <div class="row">
-        <div class="col-full">
+        <div class="col-full preview-image-holder">
+          <i class="delete-i hidden fa-solid fa-x"></i>
           <img class="preview-img" src="images/sadRover.png">
           <div class="error-message hidden">
             <h3>No photos taken by that camera on that specific Sol, go back and select a new camera or a different Sol.</h3>

@@ -13,6 +13,12 @@ var $collectionView = document.querySelector('.collection-view');
 var $logoA = document.querySelector('.logo-a');
 var $parentUL = document.querySelector('.render-here');
 var $collectionNav = document.querySelector('.collection-nav');
+var $deleteI = document.querySelector('.delete-i');
+var $deleteLi = document.createElement('li');
+var $modal = document.querySelector('.modal');
+var $cloak = document.querySelector('.cloak');
+var $cancelDelete = document.querySelector('.cancel-delete');
+var $confirmDelete = document.querySelector('.confirm-delete');
 
 $form.addEventListener('submit', submitForm);
 
@@ -28,6 +34,9 @@ function submitForm(event) {
   xhr.addEventListener('load', apiReturner);
   xhr.send();
   $form.reset();
+  $addButton.classList.remove('hidden');
+  $backButton.classList.remove('hidden');
+  $deleteI.classList.add('hidden');
 }
 
 function apiReturner(event) {
@@ -66,7 +75,6 @@ function addIt(event) {
   data.entries.unshift(photoData);
   $preView.classList.add('hidden');
   $collectionView.classList.remove('hidden');
-  // renderEntry(photoData);
   $parentUL.prepend(renderEntry(photoData));
   photoData = {};
 }
@@ -88,12 +96,14 @@ function renderEntry(entry) {
   */
   var $listItem = document.createElement('li');
   $listItem.setAttribute('data-entry-id', entry.entryId);
-  $listItem.className = 'col-third';
+  $listItem.className = 'col-third rendered-entry';
 
   var $renderImg = document.createElement('img');
   $renderImg.setAttribute('src', entry.src);
   $renderImg.className = 'pic-in-list';
   $listItem.append($renderImg);
+  $renderImg.addEventListener('click', listClick);
+
   return $listItem;
 }
 
@@ -111,4 +121,64 @@ function goToCollection(event) {
   $preView.classList.add('hidden');
   $formView.classList.add('hidden');
   $collectionView.classList.remove('hidden');
+}
+
+$parentUL.addEventListener('click', listClick);
+
+function listClick(event) {
+  if (event.target.nodeName === 'IMG') {
+    $deleteI.classList.remove('hidden');
+    $preView.classList.remove('hidden');
+    $formView.classList.add('hidden');
+    $collectionView.classList.add('hidden');
+    $addButton.classList.add('hidden');
+    $backButton.classList.add('hidden');
+    $previewImg.setAttribute('src', event.target.getAttribute('src'));
+    for (var i = 0; i < data.entries.length; i++) {
+      if (data.entries[i].src === $previewImg.getAttribute('src')) {
+        $solSpan.textContent = data.entries[i].sol;
+        $earthSpan.textContent = data.entries[i].earthDate;
+      }
+    }
+  }
+}
+
+$previewImg.addEventListener('click', clickPreview);
+
+function clickPreview(event) {
+  if ($addButton.classList.contains('hidden')) {
+    $preView.classList.add('hidden');
+    $collectionView.classList.remove('hidden');
+  }
+}
+
+$deleteI.addEventListener('click', deleteIt);
+
+function deleteIt(event) {
+  for (var i = 0; i < data.entries.length; i++) {
+    if (data.entries[i].src === $previewImg.getAttribute('src')) {
+      data.deleting = i;
+      $cloak.classList.remove('hidden');
+      $modal.classList.remove('hidden');
+      $deleteLi = document.querySelector('[data-entry-id="' + data.entries[i].entryId + '"]');
+    }
+  }
+}
+
+$cancelDelete.addEventListener('click', cancelDelete);
+
+function cancelDelete(event) {
+  $cloak.classList.add('hidden');
+  $modal.classList.add('hidden');
+}
+
+$confirmDelete.addEventListener('click', confirmDelete);
+
+function confirmDelete(event) {
+  $deleteLi.remove();
+  $preView.classList.add('hidden');
+  $collectionView.classList.remove('hidden');
+  data.entries.splice(data.deleting, 1);
+  $modal.classList.add('hidden');
+  $cloak.classList.add('hidden');
 }
