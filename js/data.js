@@ -11,6 +11,7 @@ if (previousDataJSON !== null) {
   data = JSON.parse(previousDataJSON);
 }
 window.addEventListener('beforeunload', save);
+window.addEventListener('pagehide', save);
 
 function save(event) {
   var dataJSON = JSON.stringify(data);
