@@ -29,7 +29,7 @@ function submitForm(event) {
   badDay = formField.sol;
   formField.cam = $form.elements.cam.value;
   var xhr = new XMLHttpRequest();
-  xhr.open('GET', 'https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=' + formField.sol + '&camera=' + formField.cam + '&api_key=keWG87uo1id4PeCBBKSzf0UuYTSSOzjV04iMYZuH');
+  xhr.open('GET', 'https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=' + formField.sol + '&camera=' + formField.cam + '&api_key=DEMO_KEY');
   xhr.responseType = 'json';
   xhr.addEventListener('load', apiReturner);
   xhr.send();
@@ -46,7 +46,7 @@ function apiReturner(event) {
     $errorMessage.classList.remove('hidden');
     $solSpan.textContent = badDay;
     $earthSpan.textContent = 'unknown';
-    $previewImg.setAttribute('src', 'images/sadRover.png');
+    $previewImg.setAttribute('src', 'images/sad-rover.png');
   } else {
     $previewImg.setAttribute('src', event.target.response.photos[0].img_src);
     photoData.src = event.target.response.photos[0].img_src;
@@ -68,7 +68,7 @@ function goBack(event) {
 $addButton.addEventListener('click', addIt);
 
 function addIt(event) {
-  if ($previewImg.getAttribute('src') === 'images/sadRover.png') {
+  if ($previewImg.getAttribute('src') === 'images/sad-rover.png') {
     return;
   }
   photoData.entryId = data.nextEntryId++;
